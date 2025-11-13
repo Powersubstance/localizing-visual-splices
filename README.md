@@ -1,80 +1,57 @@
-# Image Splicing Localization Using CNN 
+# BrightCut: Localizing Visual Splices
 
-> This repo is part of project in Asia University Machine Learning Camp 2018
+## Project Overview
 
-This repo is part of the code in paper "Image splicing localzation via semi-global network and fully connected conditional random fields",accepted by ECCV [Workshop on Objectionable Content and Misinformation](https://sites.google.com/view/wocm2018) 2018 [[PDF]](https://drive.google.com/file/d/1I_1cdol1e9OokhwEmzKHRNkQJyfV4ZT3/view)
-
-## What is Image Splicing
-
-Spliced image is created from two authentic images. By masking the part of donor image, the selected region is pasted to the host image after some operations (translation and rescale the donor region). Sometimes, several post-processing techniques(such as Gaussian filter on the border of selected region) are used to the spliced region for the harmony of the selected region and host image.
+BrightCut is an end-to-end research toolkit for identifying tampered regions within composite imagery. It couples convolutional backbones with refinement heads to deliver high-resolution localization masks that highlight suspected edits.
 
 ![image](https://user-images.githubusercontent.com/4397546/43671765-04b292c2-97db-11e8-8709-e4097092302c.png)
 
-##  Methods
-As shown in bottom figure, We address the problem of ***image splicing localization***: given an input image, localizing the spliced region which is cut from another image. We formulate this as a classification task but, critically, instead of classifying the spliced region by local patch, we leverage the features from whole image and local patch together to classify patch. We call this structure Semi-Global Network. Our approach exploits the observation that the spliced region should not only highly relate to local features (spliced edges), but also global features (semantic information, illumination, etc.) from the whole image. We show that our method outperforms other state-of-the-art methods in Columbia datasets.
+## Feature Highlights
 
+- Joint global and local reasoning for precise mask generation.
+- Modular data preparation scripts supporting patch-based and full-resolution workflows.
+- Checkpointed training utilities with resume-friendly logging.
+- Visualization helpers for side-by-side label, prediction, and ground-truth comparisons.
 
 ![image](https://user-images.githubusercontent.com/4397546/43671759-e8b2874e-97da-11e8-9f42-e2d0afe229bf.png)
 
-
-## Installation
-
-* Python 3.6
-* PyTorch 0.4
-
-You need to install the requirements by follow command firstly:
+## Quickstart
 
 ```shell
 pip install -r requirements.txt
+python hybird.py --help
 ```
 
-## Make Dataset
+The first command installs dependencies. The second displays all configurable hyperparameters exposed by the training driver.
 
-We use [Columbia Dataset](http://www.ee.columbia.edu/ln/dvmm/downloads/authsplcuncmp/dlform.html) for training and testing. We Split all the spliced images(in subfolder `4cam_splc`) as three folds. Training(65%), validation(15%), testing(25%). For training faster, we firstly made patches dataset offline:
+## Dataset Preparation
+
+This project supports the Columbia splicing dataset, available through the official request form. After obtaining the data, generate training patches and resized images:
 
 ```shell
-python tools/make_dataset_columbia /path/to/dataset
-```
-This script will generate image paches and resized full image for training and testing. So we have dataset: 
-
-|| training| validation | testing |
-|:---| :--: | :--: | :--: |
-|patches| 14k | 3k| 5k|
-
-## Training
-You need to modify the parameters in shell script in `train_local.sh` for training the model, the full paramters list can be found in `hybird.py`:
-
-```shell
-python hybird.py\
-  --epochs 60\
-  --lr 1e-4\
-  -c checkpoint/local\
-  --arch sgn\
-  --train-batch 64\
-  --data columbia64\
-  --base-dir /Users/oishii/Dataset/columbia/ 
+python tools/make_dataset_colmbia.py /path/to/dataset
 ```
 
-## Watching
+Adjust output locations inside the script or via command-line arguments to match your storage layout. The resulting structure separates training, validation, and testing splits for both patches and full images.
 
-We use `TensorboardX`   to watch the training process, just install it by the [readme](https://github.com/lanpa/tensorboardX).
+## Training Workflow
 
-run the watching commond as :
-```
-tensorboard --logdir ./checkpoint
-```
+Use `train_local.sh` as a template for launching experiments. Key flags include `--epochs`, `--arch`, `--train-batch`, `--data`, and `--base-dir`. Update paths before execution to point at your prepared dataset. Models and logs are stored under `checkpoint/local` by default.
 
-## Results
+## Monitoring Progress
 
-Here we show some sample results of our methods, from the left to right are the output of label, the output of mask and the ground truth mask:
+Training produces scalar summaries and segmentation previews. Point your preferred visualization tool at the `checkpoint` directory to monitor loss curves, accuracy trends, and qualitative mask outputs over time.
+
+## Evaluation and Results
+
+Sample outputs provided below demonstrate label predictions, predicted masks, and ground-truth annotations. Use `scripts/utils/evaluation.py` to compute metrics such as pixel accuracy and mean IoU on your validation split.
+
 ![image](https://user-images.githubusercontent.com/4397546/43671725-4487e1fa-97da-11e8-8dad-e083ed1a9181.png)
 
-Here are the label loss, segmentation loss, label accuracy, segmentation accuracy on validation set:
+Validation statistics including loss curves and segmentation accuracy are logged automatically during training.
+
 ![image](https://user-images.githubusercontent.com/4397546/43671741-a03c7e20-97da-11e8-86b4-c6df5cb1b3c1.png)
 
+## Credits
 
-## Acknowledgements
-
-This work is partially support by Jeju National University and JDC (Jeju Free International City Development Center).
-
-
+This repository consolidates research code exploring semi-global strategies for splice localization. Cite the project if it aids your work and share improvements via pull requests.
